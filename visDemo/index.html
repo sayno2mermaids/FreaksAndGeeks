@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>OHDSI Chart Visualizations</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="css/chart.css" rel="stylesheet">
+
+	<script src="js/require.js"></script>
+	<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Multi-Series Line (Date Axis)
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- ko if: multiSeries -->
+								<div class="chartcontainer" 
+										 data-bind="lineChart: multiSeries, chartResolution: {width: 500, height: 250}, chartOptions: multiSeriesOptions">
+								</div>
+								<!-- /ko -->
+								<!-- ko ifnot: multiSeries -->
+								Loading....
+								<!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Sunburst
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- ko if: treemap -->
+								<div class="chartcontainer" data-bind="zoomSunburst: treemap, chartResolution: {width: 200, height: 300}"></div>
+								<!-- /ko -->
+								<!-- ko ifnot: treemap -->
+								Loading....
+								<!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Boxplot
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- ko if: boxplot -->
+								<div class="chartcontainer" 
+										 data-bind="boxplot: boxplot, chartResolution: {width: 500, height: 250},
+																chartOptions: {
+																	yMax: d3.max(boxplot(), function (d) { return d.UIF }),
+																	xLabel: 'Concept Type',
+																	yLabel: 'Concepts per Person'
+																}">
+								</div>
+								<!-- /ko -->
+								<!-- ko ifnot: boxplot -->
+								Loading....
+								<!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Treemap
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- ko if: treemap -->
+								<div class="chartcontainer">
+									<!-- <dqcdm-treemap params="data: treemap"></dqcdm-treemap> -->
+								</div>
+								<!-- /ko -->
+								<!-- ko ifnot: treemap -->
+								Loading....
+								<!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</div>
+	</div>
+</body>
+
+</html>

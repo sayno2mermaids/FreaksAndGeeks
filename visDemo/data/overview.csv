@@ -1,0 +1,8 @@
+id,category,count
+1,COMPLETENESS||Density,285
+2,FIDELITY||Metadata,785
+3,FIDELITY||Measure,1250
+4,FIDELITY||Derivation,1760
+5,FIDELITY||Uniqueness,570
+6,PLAUSIBILITY||Measure,1200
+7,PLAUSIBILITY||Time,860
